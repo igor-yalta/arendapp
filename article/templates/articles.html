@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block article%}
+<div class="row">
+    <div class="col-md-3 col-md-offset-3">
+    {% for article in articles %}
+        <img src={{ object.article.article_cover.url }}>
+        <p>{{article.article_cover.url }}</p>
+        <h4>{{ article.article_title }}</h4>
+        <p> {{article.article_text}} </p>
+        <hr>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
