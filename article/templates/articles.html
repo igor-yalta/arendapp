@@ -1,17 +1,22 @@
 {% extends 'main.html' %}
-{% load thumbnail %}
 {% load staticfiles %}
 
 {% block article%}
-<div class="row">
-    <div class="col-md-3 col-md-offset-3">
+<div class="col-md-8 col-md-offset-2">
+
+    <table class="table table-hover">
+        <tbody>
     {% for article in articles %}
-        <img src={{ object.article.article_cover.url }}>
-        <p>{{article.article_cover.url }}</p>
-        <h4>{{ article.article_title }}</h4>
-        <p> {{article.article_text}} </p>
-        <hr>
+        <tr>
+        <td><img src="{{article.article_cover.url}}"width="120" height="120"></td>
+        <td>
+            <h4 align="left"><a href="/articles/get/{{ article.id }}" >{{ article.article_title }}</a></h4>
+            <p> {{article.article_text}} </p>
+        </td>
+
+        </tr>
     {% endfor %}
-    </div>
+        </tbody>
+    </table>
 </div>
 {% endblock %}

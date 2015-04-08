@@ -4,23 +4,27 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Обьявления</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'static/css/foundation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/bootstrap.css' %}">
 </head>
+
 <body>
-<div class="top-bar" >
-    <section class="top-bar-section">
-        <ul class="right">
-            {% if username%}
+
+<div class='navbar navbar-default navbar-static-top '>
+    <div class='container'>
+        <ul class='nav navbar-nav navbar-right' >
+                <li><a href="/about">О программе</a></li>
+            {% if username %}
                 <li> <a href="/auth/logout">Выйти ({{ username }})</a> </li>
             {% else %}
                 <li> <a href="/auth/login">Войти</a> </li>
             {% endif %}
         </ul>
-    </section>
+    </div>
 </div>
 
-
-<h1><a href="/"> Доска обьявлений</a></h1>
+<div class="row text-center">
+    <h1 ><a href="/"> Доска обьявлений</a></h1>
+</div>
 <div class="row">
     {% block article%}{% endblock %}
     {% block login %}{% endblock %}
